@@ -1,0 +1,1 @@
+{"agent_id":"a1","agent_type":"team:backend-developer","tool_name":"Bash","tool_input":{"command":"git merge feature"}}

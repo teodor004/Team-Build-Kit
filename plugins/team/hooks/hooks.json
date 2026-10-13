@@ -1,0 +1,25 @@
+{
+  "description": "team kit: bash guard, path guard + contract freeze, research budget, subagent objective anchor/logging/output gate, trigger phrases, stop gate",
+  "hooks": {
+    "PreToolUse": [
+      { "matcher": "Bash|PowerShell", "hooks": [ { "type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/guard-bash.sh\"", "timeout": 10 } ] },
+      { "matcher": "Write|Edit|NotebookEdit", "hooks": [ { "type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/path-guard.sh\"", "timeout": 10 } ] },
+      { "matcher": "WebSearch|WebFetch", "hooks": [ { "type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/research-budget.sh\" pre", "timeout": 10 } ] }
+    ],
+    "PostToolUse": [
+      { "matcher": "WebSearch|WebFetch", "hooks": [ { "type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/research-budget.sh\" post", "timeout": 10 } ] }
+    ],
+    "SubagentStart": [
+      { "hooks": [ { "type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/log-subagent.sh\" start", "timeout": 10 } ] }
+    ],
+    "SubagentStop": [
+      { "hooks": [ { "type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/log-subagent.sh\" stop", "timeout": 10 } ] }
+    ],
+    "UserPromptSubmit": [
+      { "hooks": [ { "type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/trigger-phrase.sh\"", "timeout": 10 } ] }
+    ],
+    "Stop": [
+      { "hooks": [ { "type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/stop-gate.sh\"", "timeout": 10 } ] }
+    ]
+  }
+}

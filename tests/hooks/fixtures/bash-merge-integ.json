@@ -1,0 +1,1 @@
+{"agent_id":"a2","agent_type":"team:integrator","tool_name":"Bash","tool_input":{"command":"git merge --no-ff feature"}}
