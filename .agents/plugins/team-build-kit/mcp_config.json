@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "team-build-kit-docs": {
+      "serverUrl": "https://antigravity.google/mcp",
+      "description": "Primary documentation and specification connector for Team Build Kit research agents (migrated from legacy url key to serverUrl)."
+    },
+    "team-build-kit-standards": {
+      "serverUrl": "https://spec.openapis.org/mcp",
+      "description": "OpenAPI 3.1, JSON Schema, OWASP ASVS, and WCAG 2.2 standards lookup endpoint using serverUrl."
+    }
+  }
+}

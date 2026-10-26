@@ -1,0 +1,12 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "team-build-kit",
+  "displayName": "Team Build Kit",
+  "version": "0.1.0",
+  "description": "Orchestrated role subagents: research & design, PO blueprint with frozen contracts, parallel branch workspace builds, integration checkpoints, and verify & ship.",
+  "suggestedPrompts": [
+    "/team-build-kit:build Build a notes app with a REST API and a web UI --parallel 3",
+    "Build with the team: implement a full-stack service with OpenAPI 3.1 contracts and WCAG 2.2 AA UI",
+    "/team-build-kit:abort"
+  ]
+}

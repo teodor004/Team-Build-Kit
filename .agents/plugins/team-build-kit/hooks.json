@@ -1,0 +1,98 @@
+{
+  "commit-test-and-adversarial-gate": {
+    "enabled": true,
+    "PreToolUse": [
+      {
+        "matcher": "git_commit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"./hooks/scripts/test-gate.sh\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  },
+  "bash-command-guard": {
+    "enabled": true,
+    "PreToolUse": [
+      {
+        "matcher": "run_command|Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"./hooks/scripts/guard-bash.sh\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  },
+  "path-and-contract-freeze-guard": {
+    "enabled": true,
+    "PreToolUse": [
+      {
+        "matcher": "write_file|edit_file|Write|Edit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"./hooks/scripts/path-guard.sh\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "research-budget-gate": {
+    "enabled": true,
+    "PreToolUse": [
+      {
+        "matcher": "search_web|read_url_content|WebSearch|WebFetch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"./hooks/scripts/research-budget.sh\" pre",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "search_web|read_url_content|WebSearch|WebFetch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"./hooks/scripts/research-budget.sh\" post",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "session-and-invocation-gate": {
+    "enabled": true,
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "bash \"./hooks/scripts/log-subagent.sh\" start",
+        "timeout": 10
+      }
+    ],
+    "PreInvocation": [
+      {
+        "type": "command",
+        "command": "bash \"./hooks/scripts/trigger-phrase.sh\"",
+        "timeout": 10
+      }
+    ],
+    "Stop": [
+      {
+        "type": "command",
+        "command": "bash \"./hooks/scripts/stop-gate.sh\"",
+        "timeout": 10
+      }
+    ]
+  }
+}

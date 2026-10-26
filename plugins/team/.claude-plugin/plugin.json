@@ -1,9 +1,0 @@
-{
-  "name": "team",
-  "displayName": "Team Build Kit",
-  "version": "0.1.0",
-  "description": "Orchestrated role subagents: research & design, PO blueprint, parallel worktree build, integration checkpoints, verify & ship",
-  "author": { "name": "teodor004" },
-  "license": "MIT",
-  "keywords": ["subagents", "product-owner", "contracts", "worktrees", "checkpoints"]
-}

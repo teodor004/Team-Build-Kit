@@ -3,7 +3,7 @@
 # Pipes fixture JSON into each hook script and asserts stdout / exit code.
 set -u
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
-S="$ROOT/plugins/team/hooks/scripts"; F="$ROOT/tests/hooks/fixtures"
+S="$ROOT/.agents/plugins/team-build-kit/hooks/scripts"; F="$ROOT/tests/hooks/fixtures"
 . "$S/lib.sh"; find_jq || { echo "jq not found: install it (winget install jqlang.jq / apt install jq) to run the hook tests"; exit 2; }
 
 pass=0; fail=0
